@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import distinctive fonts from Google Fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap'); */
+
+:root {
+  /* Font variables */
+  --font-display: 'Exo 2', sans-serif;
+  --font-body: 'Exo 2', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color variables */
+  --chaos-dark: #0a0e27;
+  --chaos-darker: #050814;
+  --chaos-blue: #9d9999;
+  --chaos-purple: #b794f6;
+  --chaos-pink: #ff006e;
+  --chaos-orange: #ff8c42;
+}
+
+@layer base {
+  * {
+    @apply border-white/10;
+  }
+
+  body {
+    @apply bg-chaos-darker text-white font-body;
+    background: linear-gradient(135deg, #050814 0%, #0a0e27 100%);
+    min-height: 100vh;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glowing text effect */
+  .text-glow {
+    text-shadow: 0 0 20px currentColor,
+                 0 0 40px currentColor,
+                 0 0 60px currentColor;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-gray-600 to-chaos-purple bg-clip-text text-transparent;
+  }
+
+  /* Card with glass morphism */
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl;
+  }
+
+  /* Interactive button */
+  .chaos-button {
+    @apply relative px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+    @apply bg-gradient-to-r from-chaos-blue to-chaos-purple;
+    @apply hover:shadow-lg hover:shadow-chaos-blue/50 hover:scale-105;
+  }
+
+  /* Canvas container */
+  .canvas-container {
+    @apply relative rounded-xl overflow-hidden;
+    background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  }
+}
+#react-doc-viewer {
+    background: linear-gradient(135deg, #050814 0%, #0a0e27 100%);
+
+
+}
+#react-doc-viewer #header-bar {
+    @apply bg-gradient-to-r from-gray-400 to-chaos-purple;
+
+}
+@layer utilities {
+  /* Custom animations */
+  @keyframes particle-float {
+    0%, 100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+      transform: translate(10px, -10px) rotate(90deg);
+    }
+    50% {
+      transform: translate(-5px, -20px) rotate(180deg);
+    }
+    75% {
+      transform: translate(-15px, -10px) rotate(270deg);
+    }
+  }
+
+  .animate-particle {
+    animation: particle-float 20s ease-in-out infinite;
+  }
+}
