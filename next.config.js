@@ -5,8 +5,8 @@ const nextConfig = {
     unoptimized: true,
   },
   // If using project pages (username.github.io/repo-name), uncomment and update:
-   basePath: '/expChaos',
-   assetPrefix: '/expChaos',
+   basePath: '/xChaos',
+   assetPrefix: '/xChaos',
 }
 
 module.exports = nextConfig
